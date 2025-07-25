@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwptluv1qob15"]
+
+[ext_resource type="Texture2D" uid="uid://vj2inefwrgty" path="res://stray assets/graphics/characters/stray/stray_idle.png" id="1_jn4jx"]
+[ext_resource type="Texture2D" uid="uid://23qny2ujq0pt" path="res://stray assets/graphics/characters/stray/stray_walk1.png" id="2_cwwqk"]
+[ext_resource type="Texture2D" uid="uid://xwnvk1j2msq7" path="res://stray assets/graphics/characters/stray/stray_walk2.png" id="3_16280"]
+[ext_resource type="Texture2D" uid="uid://c1l3xydcjwwop" path="res://stray assets/graphics/characters/stray/stray_walk3.png" id="4_vfqfh"]
+[ext_resource type="Texture2D" path="res://stray assets/graphics/characters/stray/stray_walk4.png" id="5_cwwqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boaw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jn4jx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cwwqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_16280")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vfqfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cwwqk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="stray" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_boaw2")
+animation = &"walk"
+frame = 3
+frame_progress = 0.282163
