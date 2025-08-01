@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwptluv1qob15"]
+[gd_scene load_steps=10 format=3 uid="uid://dwptluv1qob15"]
 
 [ext_resource type="Texture2D" uid="uid://vj2inefwrgty" path="res://stray assets/graphics/characters/stray/stray_idle.png" id="1_jn4jx"]
+[ext_resource type="Script" uid="uid://dvw8ey2xfubpv" path="res://stray.gd" id="1_vfqfh"]
 [ext_resource type="Texture2D" uid="uid://23qny2ujq0pt" path="res://stray assets/graphics/characters/stray/stray_walk1.png" id="2_cwwqk"]
 [ext_resource type="Texture2D" uid="uid://xwnvk1j2msq7" path="res://stray assets/graphics/characters/stray/stray_walk2.png" id="3_16280"]
 [ext_resource type="Texture2D" uid="uid://c1l3xydcjwwop" path="res://stray assets/graphics/characters/stray/stray_walk3.png" id="4_vfqfh"]
-[ext_resource type="Texture2D" path="res://stray assets/graphics/characters/stray/stray_walk4.png" id="5_cwwqk"]
+[ext_resource type="Texture2D" uid="uid://b85h10s2dwmok" path="res://stray assets/graphics/characters/stray/stray_walk4.png" id="5_cwwqk"]
+[ext_resource type="Texture2D" uid="uid://bxce7ndihb2u8" path="res://stray assets/graphics/characters/stray/stray-walk-5.png" id="7_boaw2"]
+[ext_resource type="Texture2D" uid="uid://bslo8gn2mogjg" path="res://stray assets/graphics/characters/stray/stray-walk-6.png" id="8_qk0sr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_boaw2"]
 animations = [{
@@ -28,16 +31,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_cwwqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_boaw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qk0sr")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [node name="stray" type="Area2D"]
+script = ExtResource("1_vfqfh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boaw2")
 animation = &"walk"
-frame = 3
-frame_progress = 0.282163
+frame_progress = 0.922702
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-23, -10, -16, -10, -14, -12, -9, -12, -4, -4, 0, -3, 14, -3, 18, 1, 22, 9, 23, 15, 21, 10, 18, 7, 16, 5, 16, 8, 18, 10, 18, 13, 16, 14, 14, 14, 11, 12, 9, 10, 8, 8, 8, 5, 7, 4, 5, 5, 3, 6, 1, 8, -2, 9, -4, 9, -9, 9, -9, 6, -12, 2, -12, -3, -13, -5, -15, -6, -21, -6)
