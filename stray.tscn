@@ -40,16 +40,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="stray" type="Area2D"]
 script = ExtResource("1_vfqfh")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boaw2")
 animation = &"walk"
-frame_progress = 0.922702
+frame_progress = 0.123491
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

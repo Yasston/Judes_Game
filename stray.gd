@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed = 300
+@export var speed = 250
 var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("walk")
 	else:
 		$AnimatedSprite2D.play("idle")
+	if Input.is_action_pressed("run"):
+		pass # come back and add a sprint function later
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	# no wandering outside the screen. hehehehe >:)
