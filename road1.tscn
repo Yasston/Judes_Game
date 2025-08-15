@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cojj08x213qir"]
+
+[ext_resource type="Texture2D" uid="uid://cmfcwmk06dual" path="res://stray assets/graphics/backgrounds/road1.png" id="1_udwhn"]
+[ext_resource type="PackedScene" uid="uid://dwptluv1qob15" path="res://stray.tscn" id="2_3oahi"]
+[ext_resource type="PackedScene" uid="uid://cg7257vfi2ljb" path="res://car.tscn" id="3_2hsc8"]
+[ext_resource type="Script" uid="uid://i22dhx5knwni" path="res://path_follow_2d_1.gd" id="3_qbyp5"]
+
+[sub_resource type="Curve2D" id="Curve2D_2hsc8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 352, 3, 0, 0, 0, 0, 353, 770, 0, 0, 0, 0, 352, 813, 0, 0, 0, 0, 353, 866)
+}
+point_count = 4
+
+[node name="road" type="Node2D"]
+
+[node name="Road1" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_udwhn")
+
+[node name="stray" parent="." instance=ExtResource("2_3oahi")]
+position = Vector2(131, 307)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2hsc8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(352, 3)
+rotates = false
+script = ExtResource("3_qbyp5")
+
+[node name="car" parent="Path2D/PathFollow2D" instance=ExtResource("3_2hsc8")]

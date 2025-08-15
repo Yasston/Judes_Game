@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg7257vfi2ljb"]
+
+[ext_resource type="Script" uid="uid://ccxt2f1r60p4q" path="res://car.gd" id="1_k61xc"]
+[ext_resource type="Texture2D" uid="uid://6tlv1upr8f3t" path="res://stray assets/graphics/objects/car1.png" id="1_uoj53"]
+[ext_resource type="Texture2D" uid="uid://bkppp6j27a7gj" path="res://stray assets/graphics/objects/car2.png" id="2_k61xc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06lh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uoj53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k61xc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="car" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_k61xc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_06lh1")
+frame_progress = 0.83857
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(112.027, -57.7375)
+scale = Vector2(2.20356, 1.77604)
+polygon = PackedVector2Array(-50.3854, 9.42405, -43.1245, 11.1132, -37.2249, 13.9284, -30.8715, 26.3155, -28.6025, 22.9372, -25.4258, 24.6264, -25.4258, 26.8786, -29.9639, 27.4416, -29.5101, 29.6938, -26.3334, 30.8199, -24.5182, 37.0135, -24.972, 40.9548, -26.7872, 44.3331, -27.2411, 47.7114, -31.7792, 50.5267, -36.7711, 51.0897, -40.8554, 51.0897, -60.8231, 51.0897, -67.1765, 51.0897, -73.5298, 49.4006, -74.8913, 46.0223, -77.1603, 41.5179, -76.7065, 36.4504, -76.2527, 32.5091, -74.8913, 30.2569, -71.7146, 28.5677, -72.6222, 27.4416, -75.7989, 27.4416, -76.7065, 25.1894, -76.2527, 22.9372, -73.9836, 22.9372, -73.076, 24.6264, -72.1684, 25.1894, -70.3531, 26.3155, -68.5379, 21.2481, -67.1765, 17.3067, -63.546, 13.3654, -59.0079, 11.1132, -54.9235, 9.9871)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(0, -27)
+metadata/_edit_group_ = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
