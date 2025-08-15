@@ -50,7 +50,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_boaw2")
 animation = &"walk"
-frame_progress = 0.123491
+frame_progress = 0.335232
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
